@@ -11,7 +11,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  width: 100%;
-  height: 100%;
-  background: rgb(192, 232, 255)
+  background-color: #08eae4;
+  background-image: linear-gradient(180deg,#08eae4 0,#4dff9c);
+  background-attachment: fixed;
 }</style>

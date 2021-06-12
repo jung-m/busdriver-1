@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-white"  id="login">
     <h1>Welcome fellow busdriver!</h1>
     <div>Join a game...</div>
     <form v-on:submit="join">
@@ -33,4 +33,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#login {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 16px 32px;
+  border-radius: 10px;
+}
 </style>

@@ -94,6 +94,11 @@ export default {
 </script>
 
 <style>
+#spreading-cards {
+  width: 100%;
+  height: 100%;
+}
+
 #your-cards{
   margin: auto;
   height: 120px;
@@ -102,5 +107,4 @@ export default {
 #card-cont{
   float:left
 }
-  @import '../../assets/cards/cards.css';
 </style>

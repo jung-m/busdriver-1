@@ -1,27 +1,40 @@
 <template>
-  <div id="chat">
-    Name: {{ name }} Room: {{ game.code }}
+  <div class="bg-white" id="chat">
+
+    <div id="chat-inner">
+      <div id="messages">
+        <div v-for="messageObj in messageArray" :key="messageObj.message + messageObj.name">
+          <span class="name">{{ messageObj.name}}:</span> {{ messageObj.message }}
+        </div>
+      </div>
+
+      <div id="newMessage">
+        <form v-on:submit="newMessage">
+          <input type="text" placeholder="Message" name="message" />
+          <button type="submit" value="">Send</button><br>
+        </form>
+      </div>
+    </div>
+
     <div id="players">
-      <div v-for="user in users" :key="user.id">
-        {{ user.name }}
+      <div id="users">
+        In the room:
+        <div v-for="user in users" :key="user.id">
+          {{ user.name }}
+        </div>
+      </div>
+
+      <div id="shot-log">
+        In development
       </div>
     </div>
-    <div id="messages">
-      <div v-for="messageObj in messageArray" :key="messageObj.message + messageObj.name">
-        <small>{{ messageObj.name}}:</small> {{ messageObj.message }} 
-      </div>
-    </div>
-    <div id="newMessage">
-      <form v-on:submit="newMessage">
-        <input type="text" placeholder="Message" name="message" />
-        <input type="submit" value="newMessage" /><br>
-      </form>
-    </div>
+
   </div>
 </template>
 
+
 <script>
-import {store} from '../store' 
+import {store} from '../store'
 
 export default {
   name: 'Chat',
@@ -58,36 +71,45 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#players{
-  position: absolute;
-  height: 145px;
-  width: 180px;
-  top: 20px;
-  left: 400px;
 
-  border: 1px solid rgb(163, 163, 163);
+#chat {
+  height: 100%;
 }
-#messages{
-  height:145px;
-  width: 380px;
-  overflow-y: scroll;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  text-align: left;
 
-  border: 1px solid rgb(163, 163, 163);
+#chat-inner {
+  display: flex;
+  flex-flow: column;
+  height: 50%;
 }
-#newMessage{
-  width: 600px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+
+#messages {
+  overflow-y: auto;
+  flex: 1 1 auto;
 }
-#chat{
-  height:200px;
-  width: 600px;
-  position: relative;
-  border: 1px solid rgb(163, 163, 163);
+
+#newMessage {
+  flex: 0 1 1em;
 }
+
+#newMessage > form > input {
+  width: 70%;
+  padding: 4px 8px;
+}
+
+#newMessage > form > button {
+  width: 30%;
+  padding: 4px 8px;
+}
+
+#players {
+  height: 50%;
+}
+#users {
+  height:50%;
+}
+
+#shot-log {
+  height:50%;
+}
+
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div id="home">
     <Login />
   </div>
 </template>
@@ -15,3 +15,14 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+#home {
+  height: 100vh;
+  width: 100vh;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>

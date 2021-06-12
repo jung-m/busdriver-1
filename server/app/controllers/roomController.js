@@ -7,7 +7,7 @@ exports.getRooms = async (filter) => {
     })
     .catch(err => {
         console.log(err);
-        return -1;
+        throw err;
     });
 };
 
@@ -19,18 +19,38 @@ exports.createRoom = async (data) => {
     })
     .catch(err => {
         console.log(err);
-        return -1;
+        throw err;
     });
 };
 
+exports.joinRoom = async (code, name) => {
+    await room.findOneAndUpdate( {code: code}, {}, { new: true, useFindAndModify: false})
+    .catch(err => {
+        console.log(err);
+        throw err;
+    });
+}
+
 exports.updateRoom = async (id, data) => {
-    await room.findOneAndUpdate( {_id: id }, data, { new: true, useFindAndModify: false });
+    await room.findOneAndUpdate( {_id: id }, data, { new: true, useFindAndModify: false })
+    .catch(err => {
+        console.log(err);
+        throw err;
+    });
 };
 
-exports.deleteRoom = async (id) => {
-     await room.deleteOne({ _id: id });
+exports.deleteRooms = async (filter) => {
+     await room.deleteMany(filter)
+     .catch(err => {
+         console.log(err);
+         throw err;
+     });
 };
 
 exports.deleteAllRooms = async () => {
-    await room.deleteMany({});
+    await room.deleteMany({})
+    .catch(err => {
+        console.log(err);
+        throw err;
+    });
 };
