@@ -13,7 +13,7 @@ export const store = new Vuex.Store({
     // ROOM
     name: '',
     messageArray: [],
-    game: {roomMode: 'lobby', gameMode: 'preaparing'},
+    game: {roomMode: 'lobby', gameMode: 'preparing'},
 
     // GAME
     shotLog: []

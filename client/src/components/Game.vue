@@ -1,7 +1,6 @@
 <template>
   <div id="game">
 
-
     <Preparing v-if="gameMode === 'preparing'" />
 
     <SpreadingCards v-else-if="(gameMode === 'colorPick') || (gameMode === 'valuePick') || (gameMode === 'positionPick')" />
